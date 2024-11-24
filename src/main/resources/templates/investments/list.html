@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Investments</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+<div class="container">
+
+
+<h1>Investments</h1>
+<a href="/investments/new" class="btn">Add New Investment</a>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="investment : ${investments}">
+        <td th:text="${investment.name}"></td>
+        <td th:text="${investment.amount}"></td>
+        <td th:text="${investment.description}"></td>
+        <td>
+            <a th:href="@{/investments/edit/{id}(id=${investment.id})}" class="btn">Edit</a> |
+            <a th:href="@{/investments/delete/{id}(id=${investment.id})}"class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+</table>
+</div>
+
+</body>
+</html>
