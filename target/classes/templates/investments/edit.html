@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Investments</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div class="contaner">
+<h1>Edit Investment</h1>
+<form th:action="@{/investments/edit/{id}(id=${investment.id})}" th:object="${investment}" method="post">
+    <label>Name:</label><input type="text" th:field="*{name}"/><br>
+    <label>Amount:</label><input type="number" th:field="*{amount}"/><br>
+    <label>Description:</label><input type="text" th:field="*{description}"/><br>
+
+
+    <button type="submit">Update Investment</button>
+</form>
+</div>
+
+
+</body>
+</html>

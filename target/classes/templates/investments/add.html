@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Investments</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Add New Investment</h1>
+<form th:action="@{/investments}" th:object="${investment}" method="post">
+    <label>Name:</label><input type="text" th:field="*{name}"/><br>
+    <label>Amount:</label><input type="number" th:field="*{amount}"/><br>
+    <label>Description:</label><input type="text" th:field="*{description}"/><br>
+
+    <button type="submit">Add Investment</button>
+</form>
+</div>
+<div>
+    <c:if test="${not empty message}">
+        <div class="alert alert-success">${message}</div>
+    </c:if>
+    <c:if test="${not empty error}">
+        <div class="alert alert-danger">${error}</div>
+    </c:if>
+</div>
+</body>
+</html>
